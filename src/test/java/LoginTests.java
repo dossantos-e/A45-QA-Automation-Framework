@@ -10,6 +10,8 @@ import java.time.Duration;
 
 public class LoginTests extends BaseTest {
 
+
+
     @Test
     public void loginInvalidEmailValidPasswordTest(){
         // Pre-condition
