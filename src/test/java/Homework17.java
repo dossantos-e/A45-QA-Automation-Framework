@@ -72,9 +72,6 @@ public class Homework17 extends BaseTest{
 
         // Post-condition
         driver.quit();
-        
-
-
 
     }
 }
