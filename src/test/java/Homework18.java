@@ -14,16 +14,17 @@ import java.time.Duration;
 
 public class Homework18 extends BaseTest{
     @Test
-public static void playSong() throws InterruptedException {
+public void playSong() throws InterruptedException {
       openLoginUrl();
       enterEmail();
       enterPassword();
       clickSubmit();
       Thread.sleep(2000);
       verifySuccessfulLogin();
-      clickPlaySong();
       clickNextSong();
-      verifySongIsPlaying();
+      clickPlaySong();
+      Thread.sleep(2000);
+      Assert.assertTrue(verifySongIsPlaying());
 
 
     }

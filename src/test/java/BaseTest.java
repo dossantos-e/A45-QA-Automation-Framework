@@ -34,15 +34,15 @@ public class BaseTest {
     }
 
 
-    public static void verifySongIsPlaying() {
-        WebElement verifySongIsPlaying = driver.findElement(By.cssSelector("span[title='Play or resume']"));
-        Assert.assertTrue(verifySongIsPlaying.isDisplayed());
+    public boolean verifySongIsPlaying() {
+        WebElement verifySongIsPlaying = driver.findElement(By.xpath("//div[@data-testid='sound-bar-play']"));
+        return verifySongIsPlaying.isDisplayed();
 
     }
 
 
     public static void clickNextSong() {
-        WebElement clickNextSong = driver.findElement(By.cssSelector("i[title='Play next song']"));
+        WebElement clickNextSong = driver.findElement(By.xpath("//i[@data-testid='play-next-btn']"));
         clickNextSong.click();
     }
 
@@ -73,7 +73,7 @@ public class BaseTest {
         driver.get(url);
     }
     public static void clickPlaySong() {
-        WebElement clickPlaySong = driver.findElement(By.cssSelector("div.side i.fa.fa-play"));
+        WebElement clickPlaySong = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
         clickPlaySong.click();
 
     }
