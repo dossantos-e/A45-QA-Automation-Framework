@@ -8,12 +8,13 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 
 public class BaseTest {
     public static WebDriver driver = null;
-    public static String url = "https://bbb.testpro.io/";
+    public static String url = "";
 
     @BeforeSuite
     static void setupClass() {
@@ -21,12 +22,14 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void launchBrowser() {
+    @Parameters({"BaseURL"})
+    public void launchBrowser(String BaseURL) {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        url = BaseURL;
+        openLoginUrl();
     }
     @AfterMethod
     public void quiteBrowser() {
@@ -77,6 +80,16 @@ public class BaseTest {
         clickPlaySong.click();
 
     }
-
-
+    public void selectPlaylistToDelete() {
+        WebElement clickPlaySong = driver.findElement(By.xpath("//a[@href='#!/playlist/55684']"));
+        clickPlaySong.click();
+    }
+    public void deletePlaylistButton() {
+        WebElement clickPlaySong = driver.findElement(By.xpath("//button[@class='del btn-delete-playlist']"));
+        clickPlaySong.click();
+    }
+    public void verifyDeletedPlaylist() {
+        WebElement deleteIcon = driver.findElement(By.xpath("//div[@class='success show']"));
+        Assert.assertTrue(deleteIcon.isDisplayed());
+    }
 }

@@ -15,7 +15,6 @@ import java.time.Duration;
 public class Homework18 extends BaseTest{
     @Test
 public void playSong() throws InterruptedException {
-      openLoginUrl();
       enterEmail();
       enterPassword();
       clickSubmit();
