@@ -11,8 +11,4 @@ public class Homework20 extends BaseTest {
         deletePlaylistButton();
         verifyDeletedPlaylist();
     }
-
-
-
-
 }
