@@ -11,6 +11,7 @@
                     <include name="actionMethods" />
                 </methods>
             </class>
+            <class name="Homework17"/>
         </classes>
     </test>
 </suite>

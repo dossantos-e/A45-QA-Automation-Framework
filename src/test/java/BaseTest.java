@@ -50,7 +50,7 @@ public class BaseTest {
         navigateToPage();
     }
 
-    @AfterMethod(enabled = false)
+    @AfterMethod//(enabled = false) //enabled = false will tell testng not to execute the method or disable it
     public void closeBrowser() {
         driver.quit();
     }
