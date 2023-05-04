@@ -4,15 +4,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class BaseTest {
+    public static WebDriverWait wait;
     public static WebDriver driver = null;
     public static String url = "";
 
@@ -27,6 +30,7 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseURL;
         openLoginUrl();
@@ -52,6 +56,7 @@ public class BaseTest {
     // These are the helpers for successful login
     public static void verifySuccessfulLogin() {
         WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("img[class='avatar']")));
         Assert.assertTrue(avatarIcon.isDisplayed());
     }
 
@@ -81,7 +86,7 @@ public class BaseTest {
 
     }
     public void selectPlaylistToDelete() {
-        WebElement clickPlaySong = driver.findElement(By.xpath("//a[@href='#!/playlist/55684']"));
+        WebElement clickPlaySong = driver.findElement(By.xpath("//a[@href='#!/playlist/55993']"));
         clickPlaySong.click();
     }
     public void deletePlaylistButton() {

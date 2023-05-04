@@ -6,7 +6,6 @@ public class Homework19 extends BaseTest {
         enterEmail();
         enterPassword();
         clickSubmit();
-        Thread.sleep(2000);
         verifySuccessfulLogin();
         selectPlaylistToDelete();
         deletePlaylistButton();
