@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
@@ -11,12 +12,17 @@ public class Homework21 extends BaseTest {
         clickSubmit();
         verifySuccessfulLogin();
         contextClickPlaylistToRename();
-        Thread.sleep(2000);
         editPlaylistName();
+        enterNewPlaylistName();
+    }
 
-
-
-
+    public void enterNewPlaylistName() throws InterruptedException {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@data-testid='inline-playlist-name-input']")));
+        WebElement enterNewPlaylistName = driver.findElement(By.xpath("//input[@data-testid='inline-playlist-name-input']"));
+        enterNewPlaylistName.sendKeys(Keys.chord(Keys.COMMAND,"a"));
+        enterNewPlaylistName.sendKeys(Keys.chord(Keys.DELETE));
+        enterNewPlaylistName.sendKeys("New Playlist Name HM21");
+        enterNewPlaylistName.sendKeys(Keys.chord(Keys.RETURN));
 
     }
 
@@ -24,9 +30,6 @@ public class Homework21 extends BaseTest {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//li[contains(@data-testid, 'edit')]")));
         WebElement clickEditPlaylistName = driver.findElement(By.xpath("//li[contains(@data-testid, 'edit')]"));
         clickEditPlaylistName.click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@data-testid='inline-playlist-name-input']")));
-        clickEditPlaylistName.sendKeys("Renamed Playlist HW21");
-
     }
 
     public void  contextClickPlaylistToRename() {
