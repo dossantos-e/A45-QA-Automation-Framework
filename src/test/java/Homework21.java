@@ -2,11 +2,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Homework21 extends BaseTest {
     @Test
-    public void deletePlaylist() throws InterruptedException {
+    public void deletePlaylist() {
         enterEmail();
         enterPassword();
         clickSubmit();
@@ -14,16 +15,22 @@ public class Homework21 extends BaseTest {
         contextClickPlaylistToRename();
         editPlaylistName();
         enterNewPlaylistName();
+        verifyNewPlaylistName();
+
     }
 
-    public void enterNewPlaylistName() throws InterruptedException {
+    public void verifyNewPlaylistName() {
+        WebElement newPlaylistName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(4)")));
+        Assert.assertTrue(newPlaylistName.getText().contains("New Playlist Name HM21"));
+    }
+
+    public void enterNewPlaylistName(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@data-testid='inline-playlist-name-input']")));
         WebElement enterNewPlaylistName = driver.findElement(By.xpath("//input[@data-testid='inline-playlist-name-input']"));
         enterNewPlaylistName.sendKeys(Keys.chord(Keys.COMMAND,"a"));
         enterNewPlaylistName.sendKeys(Keys.chord(Keys.DELETE));
         enterNewPlaylistName.sendKeys("New Playlist Name HM21");
         enterNewPlaylistName.sendKeys(Keys.chord(Keys.RETURN));
-
     }
 
     public void editPlaylistName() {

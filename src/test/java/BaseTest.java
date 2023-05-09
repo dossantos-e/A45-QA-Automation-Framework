@@ -51,7 +51,6 @@ public class BaseTest {
 
     }
 
-
     public static void clickNextSong() {
         WebElement clickNextSong = driver.findElement(By.xpath("//i[@data-testid='play-next-btn']"));
         clickNextSong.click();
