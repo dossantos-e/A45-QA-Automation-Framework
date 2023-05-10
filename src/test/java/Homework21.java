@@ -16,7 +16,6 @@ public class Homework21 extends BaseTest {
         editPlaylistName();
         enterNewPlaylistName();
         verifyNewPlaylistName();
-
     }
 
     public void verifyNewPlaylistName() {
