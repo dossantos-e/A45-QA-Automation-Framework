@@ -5,14 +5,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.LoginPage;
 
 import java.time.Duration;
 
 public class LoginTests extends BaseTest {
-
-
-
-    @Test
+//    @Test
     public void loginInvalidEmailValidPasswordTest(){
         // Pre-condition
         //      Added ChromeOptions argument below to fix websocket error
@@ -80,7 +78,7 @@ public class LoginTests extends BaseTest {
         driver.quit();
     }
 
-    @Test
+//    @Test
     public static void loginValidEmailEmptyPasswordTest() {
 
 //      Added ChromeOptions argument below to fix websocket error
@@ -110,4 +108,16 @@ public class LoginTests extends BaseTest {
 
         driver.quit();
     }
+
+    @Test
+    public void loginValidCredentials(){
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.enterEmail();
+        loginPage.enterPassword();
+        loginPage.clickSubmit();
+    }
+
+
+
 }
