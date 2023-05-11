@@ -9,7 +9,7 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver givenDriver) {
         super(givenDriver);
     }
-     By playlistToRename = By.xpath("//a[@href='#!/playlist/56146']");
+     private final By playlistToRename = By.xpath("//a[@href='#!/playlist/56146']");
 
     //let's refactor the method to context/right click the playlist
     //lets initialize actions class in BasePage first, and create the helper method for it,

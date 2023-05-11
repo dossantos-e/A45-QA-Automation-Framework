@@ -14,9 +14,9 @@ public class BasePage {
 //lets start with basepage, this will contain our common methods/steps that
     // our page objects will inherit/extend to
 
-    WebDriver driver;
-    WebDriverWait wait;
-    Actions actions;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected Actions actions;
 
     //we create a constructor to pass the instance of the objects (driver, webdriverwait)
     public BasePage(WebDriver givenDriver) {
