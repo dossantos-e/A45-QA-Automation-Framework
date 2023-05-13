@@ -44,60 +44,9 @@ public class BaseTest {
         driver.quit();
     }
 
-
-    public boolean verifySongIsPlaying() {
-        WebElement verifySongIsPlaying = driver.findElement(By.xpath("//div[@data-testid='sound-bar-play']"));
-        return verifySongIsPlaying.isDisplayed();
-
-    }
-
-    public static void clickNextSong() {
-        WebElement clickNextSong = driver.findElement(By.xpath("//i[@data-testid='play-next-btn']"));
-        clickNextSong.click();
-    }
-
-    // These are the helpers for successful login
-    public static void verifySuccessfulLogin() {
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("img[class='avatar']")));
-        Assert.assertTrue(avatarIcon.isDisplayed());
-    }
-
-    public static void clickSubmit() {
-        WebElement submit = driver.findElement(By.cssSelector("button[type='submit']"));
-        submit.click();
-    }
-
-    public static void enterPassword() {
-        WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
-        passwordField.clear();
-        passwordField.sendKeys("te$t$tudent");
-    }
-
-    public static void enterEmail() {
-        WebElement emailField = driver.findElement(By.cssSelector("input[type='email']"));
-        emailField.clear();
-        emailField.sendKeys("eduardo.santos@testpro.io");
-    }
-
     public static void openLoginUrl() {
         driver.get(url);
     }
-    public static void clickPlaySong() {
-        WebElement clickPlaySong = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
-        clickPlaySong.click();
+
 
     }
-    public void selectPlaylistToDelete() {
-        WebElement clickPlaySong = driver.findElement(By.xpath("//a[@href='#!/playlist/55993']"));
-        clickPlaySong.click();
-    }
-    public void deletePlaylistButton() {
-        WebElement clickPlaySong = driver.findElement(By.xpath("//button[@class='del btn-delete-playlist']"));
-        clickPlaySong.click();
-    }
-    public void verifyDeletedPlaylist() {
-        WebElement deleteIcon = driver.findElement(By.xpath("//div[@class='success show']"));
-        Assert.assertTrue(deleteIcon.isDisplayed());
-    }
-}

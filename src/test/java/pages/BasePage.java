@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -14,8 +15,9 @@ public class BasePage {
 //lets start with basepage, this will contain our common methods/steps that
     // our page objects will inherit/extend to
 
-    protected WebDriver driver;
-    protected WebDriverWait wait;
+    protected static WebDriver driver;
+    protected static WebDriverWait wait;
+    public Assert Assert;
     protected Actions actions;
 
     //we create a constructor to pass the instance of the objects (driver, webdriverwait)

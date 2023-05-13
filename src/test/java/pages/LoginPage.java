@@ -14,8 +14,8 @@ public class LoginPage extends BasePage {
     private final By passwordField = By.cssSelector("input[type='password']");
     private final By submitBtn = By.cssSelector("button[type='submit']");
 
-    public void
-    enterEmail() {//we used the generic findElement() method from basepage which has explicit wait
+    public void enterEmail() {//we used the generic findElement() method from basepage which has explicit wait
+
         findElement(emailField).sendKeys("eduardo.santos@testpro.io");
     }
     public void enterPassword() {
@@ -25,4 +25,11 @@ public class LoginPage extends BasePage {
     public void clickSubmit() {
         click(submitBtn);
     }
+
+    public void loginPage(){
+        enterEmail();
+        enterPassword();
+        clickSubmit();
+    }
+
 }

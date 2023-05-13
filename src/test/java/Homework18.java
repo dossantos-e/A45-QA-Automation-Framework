@@ -9,21 +9,28 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.LoginPage;
 
 import java.time.Duration;
 
 public class Homework18 extends BaseTest{
-    @Test
+@Test
 public void playSong() throws InterruptedException {
-      enterEmail();
-      enterPassword();
-      clickSubmit();
+      LoginPage loginPage = new LoginPage(driver);
+      HomePage homePage = new HomePage(driver);
+
+      loginPage.enterEmail();
+      loginPage.enterPassword();
+      loginPage.clickSubmit();
       Thread.sleep(2000);
-      verifySuccessfulLogin();
-      clickNextSong();
-      clickPlaySong();
+      homePage.getUserAvatar();
+      Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
       Thread.sleep(2000);
-      Assert.assertTrue(verifySongIsPlaying());
+      homePage.clickNextSong();
+      homePage.clickPlaySong();
+      Thread.sleep(2000);
+      homePage.verifySongIsPlaying();
 
 
     }
