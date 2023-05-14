@@ -22,8 +22,7 @@ public class Homework21 extends BaseTest {
         homePage.contextClickPlaylistToRename();
         homePage.editPlaylistName();
         homePage.enterNewPlaylistName();
-        Assert.assertTrue(homePage.verifyNewPlaylistName.getText().contains("New Playlist Name HM21"));
-        //how can I assert verifyNewPlaylistName?
+        homePage.verifyNewPlaylistName();
     }
 
 

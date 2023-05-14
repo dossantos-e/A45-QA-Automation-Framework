@@ -46,17 +46,15 @@ public class HomePage extends BasePage {
         WebElement verifySongIsPlaying = driver.findElement(By.xpath("//div[@data-testid='sound-bar-play']"));
         verifySongIsPlaying.isDisplayed();
     }
-
-
-
     public void verifyNewPlaylistName() {
-
-        //        org.testng.Assert.assertTrue(newPlaylistName.getText().contains("New Playlist Name HM21"));
+        WebElement newPlaylistName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(4)")));
+        org.testng.Assert.assertTrue(newPlaylistName.getText().contains("New Playlist Name HM21"));
     }
 
-    public void enterNewPlaylistName() {
-        // how can I send keys using the findElement helper?
-        enterNewPlaylistName.sendKeys(Keys.chord(Keys.COMMAND, "a"));
+    public void enterNewPlaylistName(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@data-testid='inline-playlist-name-input']")));
+        WebElement enterNewPlaylistName = driver.findElement(By.xpath("//input[@data-testid='inline-playlist-name-input']"));
+        enterNewPlaylistName.sendKeys(Keys.chord(Keys.COMMAND,"a"));
         enterNewPlaylistName.sendKeys(Keys.chord(Keys.DELETE));
         enterNewPlaylistName.sendKeys("New Playlist Name HM21");
         enterNewPlaylistName.sendKeys(Keys.chord(Keys.RETURN));
