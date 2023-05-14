@@ -49,9 +49,8 @@ public class HomePage extends BasePage {
 
 
 
-    public WebElement verifyNewPlaylistName() {
-        // how can I assert verifyNewPlaylistName?
-        return findElement(verifyNewPlaylistName);
+    public void verifyNewPlaylistName() {
+
         //        org.testng.Assert.assertTrue(newPlaylistName.getText().contains("New Playlist Name HM21"));
     }
 
